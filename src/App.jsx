@@ -21,13 +21,20 @@ export default function App() {
     }))
   }
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+    console.log("Dati: ", formData)
+  }
+
 
 
   return (
     <div className="container py-4">
       <h1 className="mb-4">Crea un nuovo Post</h1>
 
-      <form className="card p-4 shadow-sm">
+      <form
+        onSubmit={handleFormSubmit}
+        className="card p-4 shadow-sm">
 
         <div className="mb-3">
           <label className="form-label"

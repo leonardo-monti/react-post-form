@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import axios from 'axios'
 
 const initialFormData = {
   author: "",
@@ -24,6 +25,14 @@ export default function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault()
     console.log("Dati: ", formData)
+
+    axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
+      .then((res) => {
+        console.log("richiesta inviata", res.data)
+      })
+      .catch((error) => {
+        console.error("Errore: ", error)
+      })
   }
 
 
